@@ -42,16 +42,16 @@ const skills = [
 ];
 
 const interests = [
-  { icon: Bot, title: "IA aplicada", text: "Asistentes, automatizaciones y herramientas que reduzcan trabajo manual." },
-  { icon: Database, title: "Datos y trazabilidad", text: "Visualizacion, control documental e indicadores para tomar mejores decisiones." },
-  { icon: Code2, title: "Productos web", text: "Interfaces rapidas, utiles y simples de mantener en entornos reales." },
+  { icon: Bot, title: "IA aplicada", text: "Asistentes, automatizaciones y herramientas que ayuden al trabajo manual." },
+  { icon: Database, title: "Datos y trazabilidad", text: "Visualizacion, control documental e indicadores para tomar mejores decisiones en base a datos." },
+  { icon: Code2, title: "Desarrollo", text: "Toda idea es una oportunidad para crear algo nuevo y emocionante." },
 ];
 
 const creativeItems = [
-  "Experimentacion visual",
-  "Ideas de marca personal",
-  "Contenido digital",
+  "Contenido Científico",
   "Proyectos con identidad propia",
+  "Contenido digital",
+  "Contenido en Redes",
 ];
 
 export default function Home() {
@@ -257,7 +257,7 @@ export default function Home() {
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Seccion creativa</p>
             <h2 className="text-3xl font-semibold sm:text-4xl">Un espacio mas personal para ideas, estetica y exploracion.</h2>
             <p className="mt-4 leading-7 text-[var(--muted)]">
-              Base reservada para mostrar una mirada mas humana del trabajo: gustos visuales, proyectos personales, contenido, pruebas y piezas que complementen el perfil tecnico.
+              Espacio reservado para mostrar una mirada mas humana de mi trabajo: gustos visuales, proyectos personales, contenido y gustos personales.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
@@ -277,11 +277,11 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 rounded-lg border border-[var(--line)] bg-[var(--surface)] p-6 shadow-sm backdrop-blur md:flex-row md:items-start md:p-8">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Contacto</p>
-            <h2 className="mt-2 text-3xl font-semibold">Convirtamos la siguiente idea en una version publicable.</h2>
+            <h2 className="mt-2 text-3xl font-semibold">Convirtamos tu idea al siguiente nivel.</h2>
             <div className="mt-6 grid gap-3 text-[var(--muted)]">
-              <a className="inline-flex items-center gap-3 transition hover:text-[var(--accent-strong)]" href="mailto:hola@portafolio.dev">
+              <a className="inline-flex items-center gap-3 transition hover:text-[var(--accent-strong)]" href="mailto:dante.diaz.pacheco@gmail.com">
                 <Mail size={18} aria-hidden="true" />
-                hola@portafolio.dev
+                dante.diaz.pacheco@gmail.com
               </a>
               <p className="inline-flex items-center gap-3">
                 <MapPin size={18} aria-hidden="true" />
@@ -294,11 +294,11 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--foreground)] px-5 py-3 font-semibold text-[var(--background)] transition hover:bg-[var(--accent)] hover:text-white" href="mailto:hola@portafolio.dev">
+            <a className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold transition hover:border-[var(--accent)]" href="mailto:dante.diaz.pacheco@gmail.com">
               <Mail size={18} aria-hidden="true" />
               Escribir
             </a>
-            <a className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold transition hover:border-[var(--accent)]" href="https://www.linkedin.com/" target="_blank">
+            <a className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold transition hover:border-[var(--accent)]" href="https://www.linkedin.com/in/dantepd" rel="noopener noreferrer" target="_blank">
               <Linkedin size={18} aria-hidden="true" />
               LinkedIn
             </a>
