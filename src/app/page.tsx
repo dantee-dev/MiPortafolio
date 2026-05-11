@@ -1,7 +1,9 @@
+import Image from "next/image";
 import {
   ArrowUp,
   ArrowUpRight,
   Bot,
+  BriefcaseBusiness,
   Code2,
   Database,
   Download,
@@ -11,8 +13,9 @@ import {
   Mail,
   MapPin,
   Palette,
-  Sparkles,
   Phone,
+  ShieldCheck,
+  Sparkles,
 } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -20,6 +23,8 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
       <BannerSection />
+      <MetricsSection />
+      <ServicesSection />
       <CertificatesSection />
       <ProjectsSection />
       <SkillsSection />
@@ -51,10 +56,10 @@ function BannerSection() {
           Bienvenidos
         </a>
         <div className="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex">
+          <a href="#servicios">Servicios</a>
           <a href="#certificados">Certificados</a>
           <a href="#proyectos">Proyectos</a>
           <a href="#habilidades">Habilidades</a>
-          <a href="#intereses">Intereses</a>
           <a href="#contacto">Contacto</a>
         </div>
         <div className="flex items-center gap-2">
@@ -81,7 +86,7 @@ function BannerSection() {
             DANTE PACHECO DIAZ.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--muted)]">
-            Ingeniero Informatico orientado a la optimizacion de procesos mediante el analisis estrategico de informacion, con experiencia en entornos administrativos, de desarrollo, proyectos, logistica y soporte TI. Poseo multiples certificados en diferentes areas y estoy enfocado en aportar valor mediante soluciones digitales eficientes, tecnologicas, desarrollo web y herramientas de visualizacion de datos.
+            Ingeniero Informatico orientado a la optimizacion de procesos mediante analisis estrategico de informacion, desarrollo web, visualizacion de datos y soporte TI. Me enfoco en convertir necesidades operativas en soluciones digitales claras, utiles y medibles.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <a
@@ -102,23 +107,34 @@ function BannerSection() {
           </div>
         </div>
 
-        <div className="relative min-h-[520px]">
-          <div className="absolute left-0 top-10 w-[78%] rounded-[2rem] border border-[var(--line)] bg-[#020617]/92 p-4 shadow-2xl shadow-black/30 sm:p-5">
+        <div className="relative min-h-[560px]">
+          <div className="absolute left-0 top-0 w-[70%] overflow-hidden rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] shadow-2xl shadow-black/25 backdrop-blur">
+            <Image
+              alt="Foto de Dante Pacheco Diaz"
+              className="h-[420px] w-full object-cover object-center"
+              height={640}
+              priority
+              src="/Dante-Foto.png"
+              width={520}
+            />
+          </div>
+
+          <div className="absolute right-0 top-16 w-[54%] rounded-[2rem] border border-[var(--line)] bg-[#020617]/92 p-4 shadow-2xl shadow-black/30 sm:p-5">
             <div className="mb-5 flex gap-2">
               <span className="size-3 rounded-full bg-[var(--coral)]" />
               <span className="size-3 rounded-full bg-[var(--amber)]" />
               <span className="size-3 rounded-full bg-[var(--accent)]" />
             </div>
             <div className="space-y-4 font-mono text-sm text-blue-100">
-              <p><span className="text-[var(--amber)]">const</span> portfolio = &#123;</p>
-              <p className="pl-5">perfil: &quot;Ingeniero Informatico&quot;,</p>
-              <p className="pl-5">focus: &quot;procesos + datos + web&quot;,</p>
-              <p className="pl-5">base: &quot;soluciones digitales&quot;</p>
+              <p><span className="text-[var(--amber)]">const</span> perfil = &#123;</p>
+              <p className="pl-5">web: &quot;Next.js&quot;,</p>
+              <p className="pl-5">datos: &quot;Power BI&quot;,</p>
+              <p className="pl-5">soporte: &quot;TI&quot;</p>
               <p>&#125;</p>
             </div>
           </div>
 
-          <div className="absolute bottom-10 right-0 w-[72%] rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-5 shadow-2xl shadow-black/20 backdrop-blur">
+          <div className="absolute bottom-10 right-0 w-[76%] rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-5 shadow-2xl shadow-black/20 backdrop-blur">
             <div className="mb-5 flex items-center justify-between">
               <div>
                 <p className="text-sm text-[var(--muted)]">Enfoque</p>
@@ -142,11 +158,81 @@ function BannerSection() {
               ))}
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-          <div className="absolute right-8 top-0 rounded-2xl border border-[var(--line)] bg-[var(--surface)] px-5 py-4 shadow-xl backdrop-blur [animation:float-y_5s_ease-in-out_infinite]">
-            <p className="text-3xl font-semibold">TI</p>
-            <p className="text-sm text-[var(--muted)]">web, datos y soporte</p>
+// METRICAS
+function MetricsSection() {
+  const metrics = [
+    { value: "2", label: "proyectos destacados" },
+    { value: "11", label: "certificados y cursos" },
+    { value: "6", label: "areas tecnicas" },
+    { value: "4", label: "focos: web, datos, soporte e IA" },
+  ];
+
+  return (
+    <section className="px-5 py-10 sm:px-8 lg:px-12">
+      <div className="mx-auto grid max-w-7xl gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {metrics.map((metric) => (
+          <div className="rounded-lg border border-[var(--line)] bg-[var(--surface)] p-5 shadow-sm backdrop-blur" key={metric.label}>
+            <p className="text-4xl font-semibold text-[var(--accent-strong)]">{metric.value}</p>
+            <p className="mt-2 text-sm font-medium text-[var(--muted)]">{metric.label}</p>
           </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+// SERVICIOS
+function ServicesSection() {
+  const services = [
+    {
+      icon: Code2,
+      title: "Desarrollo web",
+      text: "Construccion de interfaces y aplicaciones con foco en claridad, rendimiento y experiencia de usuario.",
+    },
+    {
+      icon: Database,
+      title: "Datos y reporteria",
+      text: "Organizacion, analisis y visualizacion de datos para apoyar decisiones y seguimiento operativo.",
+    },
+    {
+      icon: Bot,
+      title: "Automatizacion e IA",
+      text: "Uso de prompts, asistentes y flujos digitales para reducir trabajo manual y mejorar procesos.",
+    },
+    {
+      icon: BriefcaseBusiness,
+      title: "Soporte y mejora TI",
+      text: "Acompanamiento tecnico, documentacion y mejora continua para equipos y entornos administrativos.",
+    },
+  ];
+
+  return (
+    <section className="px-5 py-16 sm:px-8 lg:px-12" id="servicios">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Lo que puedo aportar</p>
+          <h2 className="max-w-3xl text-3xl font-semibold sm:text-4xl">Soluciones digitales para ordenar, automatizar y dar visibilidad al trabajo.</h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {services.map((service) => {
+            const Icon = service.icon;
+            return (
+              <article className="rounded-lg border border-[var(--line)] bg-[var(--surface)] p-6 shadow-sm backdrop-blur" key={service.title}>
+                <span className="mb-5 grid size-11 place-items-center rounded-full bg-[rgba(78,161,255,0.14)] text-[var(--accent-strong)]">
+                  <Icon size={20} aria-hidden="true" />
+                </span>
+                <h3 className="text-xl font-semibold">{service.title}</h3>
+                <p className="mt-3 leading-7 text-[var(--muted)]">{service.text}</p>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -155,50 +241,37 @@ function BannerSection() {
 
 // CERTIFICADOS
 function CertificatesSection() {
-  const certificates = [
+  const certificateGroups = [
     {
-      name: "Ciber Seguridad y Ethical Hacking",
-      file: "03-Certificado-Curso-Ciber-Seguridad-y-Ethical-Hacking.pdf",
+      type: "Titulos",
+      items: [
+        { name: "Titulo Ingeniero", file: "01-Certificado-de-Titulo-Ingeniero.pdf" },
+        { name: "Titulo Tecnico", file: "02-Certificado-De-Titulo-Tecnico.pdf" },
+      ],
     },
     {
-      name: "Titulo Tecnico",
-      file: "02-Certificado-De-Titulo-Tecnico.pdf",
+      type: "Desarrollo y sistemas",
+      items: [
+        { name: "Desarrollador Full Stack", file: "05-CERTIFICADO-EN-DESARROLLADOR-FULL-STACK.pdf" },
+        { name: "Desarrollo de Aplicaciones", file: "06-CERTIFICADO-EN-DESARROLLO-DE-APLICACIONES.pdf" },
+        { name: "Diseño Agil de Sistemas", file: "07-CERTIFICADO-EN-DISEÑO-ÁGIL-DE-SISTEMAS.pdf" },
+      ],
     },
     {
-      name: "Titulo Ingeniero",
-      file: "01-Certificado-de-Titulo-Ingeniero.pdf",
+      type: "Datos, soporte y cloud",
+      items: [
+        { name: "Diseño y Gestion de Base de Datos", file: "08-CERTIFICADO-EN-DISEÑO-Y-GESTIÓN-DE-BASE-DE-DATOS.pdf" },
+        { name: "Soporte Computacional", file: "09-CERTIFICADO-EN-SOPORTE-COMPUTACIONAL.pdf" },
+        { name: "Arquitectura Cloud", file: "04-CERTIFICADO-EN-ARQUITECTURA-CLOUD.pdf" },
+      ],
     },
     {
-      name: "Arquitectura Cloud",
-      file: "04-CERTIFICADO-EN-ARQUITECTURA-CLOUD.pdf",
-    },
-    {
-      name: "Desarrollador Full Stack",
-      file: "05-CERTIFICADO-EN-DESARROLLADOR-FULL-STACK.pdf",
-    },
-    {
-      name: "Desarrollo de Aplicaciones",
-      file: "06-CERTIFICADO-EN-DESARROLLO-DE-APLICACIONES.pdf",
-    },
-    {
-      name: "Diseño Agil de Sistemas",
-      file: "07-CERTIFICADO-EN-DISEÑO-ÁGIL-DE-SISTEMAS.pdf",
-    },
-    {
-      name: "Diseño y Gestion de Base de Datos",
-      file: "08-CERTIFICADO-EN-DISEÑO-Y-GESTIÓN-DE-BASE-DE-DATOS.pdf",
-    },
-    {
-      name: "Soporte Computacional",
-      file: "09-CERTIFICADO-EN-SOPORTE-COMPUTACIONAL.pdf",
-    },
-    {
-      name: "Prompt Engineering",
-      file: "10-CERTIFICADO-PROMPT-ENGINEERING.pdf",
-    },
-    {
-      name: "Gestion de Proyectos Scrum",
-      file: "11-GESTIÓN-DE-PROYECTOS-SCRUM.pdf",
+      type: "Ciberseguridad, IA y gestion",
+      items: [
+        { name: "Ciber Seguridad y Ethical Hacking", file: "03-Certificado-Curso-Ciber-Seguridad-y-Ethical-Hacking.pdf" },
+        { name: "Prompt Engineering", file: "10-CERTIFICADO-PROMPT-ENGINEERING.pdf" },
+        { name: "Gestion de Proyectos Scrum", file: "11-GESTIÓN-DE-PROYECTOS-SCRUM.pdf" },
+      ],
     },
   ];
 
@@ -208,7 +281,7 @@ function CertificatesSection() {
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Mis certificados / cursos</p>
-            <h2 className="max-w-3xl text-3xl font-semibold sm:text-4xl">Formacion que respalda mi base tecnica y profesional.</h2>
+            <h2 className="max-w-3xl text-3xl font-semibold sm:text-4xl">Formacion organizada por especialidad para mostrar una base tecnica transversal.</h2>
           </div>
           <a className="inline-flex items-center gap-2 font-semibold text-[var(--accent-strong)]" href="#proyectos">
             Ver proyectos
@@ -216,17 +289,24 @@ function CertificatesSection() {
           </a>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {certificates.map((certificate) => (
-            <a
-              className="inline-flex min-h-20 items-center justify-between gap-4 rounded-lg border border-[var(--line)] bg-[var(--surface)] px-5 py-4 font-semibold text-[var(--foreground)] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-lg"
-              download
-              href={`/${certificate.file}`}
-              key={certificate.file}
-            >
-              <span>{certificate.name}</span>
-              <Download className="shrink-0 text-[var(--accent-strong)]" size={18} aria-hidden="true" />
-            </a>
+        <div className="grid gap-4 lg:grid-cols-2">
+          {certificateGroups.map((group) => (
+            <article className="rounded-lg border border-[var(--line)] bg-[var(--surface)] p-6 shadow-sm backdrop-blur" key={group.type}>
+              <h3 className="text-xl font-semibold">{group.type}</h3>
+              <div className="mt-5 grid gap-3">
+                {group.items.map((certificate) => (
+                  <a
+                    className="inline-flex min-h-14 items-center justify-between gap-4 rounded-lg border border-[var(--line)] bg-white/6 px-4 py-3 font-semibold text-[var(--foreground)] transition hover:border-[var(--accent)]"
+                    download
+                    href={`/${certificate.file}`}
+                    key={certificate.file}
+                  >
+                    <span>{certificate.name}</span>
+                    <Download className="shrink-0 text-[var(--accent-strong)]" size={18} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>
@@ -240,14 +320,20 @@ function ProjectsSection() {
     {
       name: "Frogpy IA",
       type: "Producto IA",
-      description: "Chatbot de bienestar con experiencia conversacional, autenticacion, analitica, modulos privados, pagos e integraciones para flujos de usuario.",
-      tags: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "Framer Motion", "Lucide", "Recharts", "Zod", "Transbank"],
+      problem: "Necesidad de una experiencia conversacional enfocada en bienestar, con acceso privado, pagos e interacciones medibles.",
+      solution: "Aplicacion web con chatbot, autenticacion, modulos privados, analitica, validaciones e integraciones para flujos de usuario.",
+      result: "Producto desplegable con base full stack moderna y preparado para evolucionar con nuevas funciones.",
+      tags: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "Framer Motion", "Recharts", "Zod", "Transbank"],
+      demoHref: "https://frogpy-ai.vercel.app/menu",
     },
     {
       name: "Cliente al Dia",
       type: "Gestion documental",
-      description: "Solucion web para organizar y consultar documentacion comercial interna, permitiendo carga, visualizacion y descarga de archivos con control de duplicados mediante codigos unicos.",
+      problem: "Gestion interna de documentacion comercial sensible, con necesidad de ordenar archivos y reducir duplicados.",
+      solution: "Sistema web para cargar, consultar, visualizar y descargar documentos con control por codigos unicos.",
+      result: "Proyecto de uso confidencial por contener datos sensibles de clientes y procesos internos.",
       tags: ["Python", "HTML", "CSS", "JavaScript", "MySQL"],
+      confidential: true,
     },
   ];
 
@@ -257,7 +343,7 @@ function ProjectsSection() {
         <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Proyectos</p>
-            <h2 className="max-w-2xl text-3xl font-semibold sm:text-4xl">Trabajo seleccionado para mostrar capacidades reales.</h2>
+            <h2 className="max-w-2xl text-3xl font-semibold sm:text-4xl">Casos seleccionados para mostrar problema, solucion y alcance real.</h2>
           </div>
           <a className="inline-flex items-center gap-2 font-semibold text-[var(--accent-strong)]" href="https://github.com/" target="_blank">
             <Github size={18} aria-hidden="true" />
@@ -270,13 +356,35 @@ function ProjectsSection() {
             <article className="rounded-lg border border-[var(--line)] bg-[var(--surface)] p-6 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-xl" key={project.name}>
               <p className="text-sm font-semibold text-[var(--accent-strong)]">{project.type}</p>
               <h3 className="mt-4 text-2xl font-semibold">{project.name}</h3>
-              <p className="mt-3 min-h-28 leading-7 text-[var(--muted)]">{project.description}</p>
+              <div className="mt-5 grid gap-4 leading-7 text-[var(--muted)]">
+                <p><span className="font-semibold text-[var(--foreground)]">Problema: </span>{project.problem}</p>
+                <p><span className="font-semibold text-[var(--foreground)]">Solucion: </span>{project.solution}</p>
+                <p><span className="font-semibold text-[var(--foreground)]">Resultado: </span>{project.result}</p>
+              </div>
               <div className="mt-6 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span className="rounded-full bg-white/8 px-3 py-1 text-sm font-medium text-[var(--foreground)]" key={tag}>
                     {tag}
                   </span>
                 ))}
+              </div>
+              <div className="mt-7">
+                {project.demoHref ? (
+                  <a
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold transition hover:border-[var(--accent)]"
+                    href={project.demoHref}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Ver demo
+                    <ArrowUpRight size={18} aria-hidden="true" />
+                  </a>
+                ) : (
+                  <span className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold text-[var(--muted)]">
+                    <ShieldCheck size={18} aria-hidden="true" />
+                    Proyecto confidencial
+                  </span>
+                )}
               </div>
             </article>
           ))}
@@ -362,10 +470,10 @@ function InterestsSection() {
 // CREATIVO
 function CreativeSection() {
   const creativeItems = [
-    "Contenido Científico",
+    "Contenido cientifico",
     "Proyectos con identidad propia",
     "Contenido digital",
-    "Contenido en Redes",
+    "Contenido en redes",
   ];
 
   return (
@@ -400,7 +508,7 @@ function ContactSection() {
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 rounded-lg border border-[var(--line)] bg-[var(--surface)] p-6 shadow-sm backdrop-blur md:flex-row md:items-start md:p-8">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Contacto</p>
-          <h2 className="mt-2 text-3xl font-semibold">Convirtamos tu idea al siguiente nivel.</h2>
+          <h2 className="mt-2 text-3xl font-semibold">Construyamos una solucion clara, util y medible.</h2>
           <div className="mt-6 grid gap-3 text-[var(--muted)]">
             <a className="inline-flex items-center gap-3 transition hover:text-[var(--accent-strong)]" href="mailto:dante.diaz.pacheco@gmail.com">
               <Mail size={18} aria-hidden="true" />
@@ -410,13 +518,17 @@ function ContactSection() {
               <MapPin size={18} aria-hidden="true" />
               Santiago, Chile.
             </p>
-            <a className="inline-flex items-center gap-3 transition hover:text-[var(--accent-strong)]" href="https://wa.me/56987325712" target="_blank">
+            <a className="inline-flex items-center gap-3 transition hover:text-[var(--accent-strong)]" href="https://wa.me/56987325712" rel="noopener noreferrer" target="_blank">
               <Phone size={18} aria-hidden="true" />
               WhatsApp: +56 9 8732 5712
             </a>
           </div>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
+          <a className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-5 py-3 font-semibold text-white shadow-lg shadow-blue-950/30 transition hover:bg-[var(--accent-strong)]" download href="/Dante-Pacheco-Diaz-Curriculum.pdf">
+            <Download size={18} aria-hidden="true" />
+            Descargar CV
+          </a>
           <a className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold transition hover:border-[var(--accent)]" href="https://wa.me/56987325712" rel="noopener noreferrer" target="_blank">
             <Phone size={18} aria-hidden="true" />
             Escribir
