@@ -21,9 +21,9 @@
   --background: #f4f7fb;
   --foreground: #101827;
   --muted: #58677c;
-  --surface: rgba(255, 255, 255, 0.82);
-  --surface-solid: #ffffff;
-  --line: rgba(16, 24, 39, 0.12);
+  --surface: rgba(232, 239, 248, 0.88);
+  --surface-solid: #e8eff8;
+  --line: rgba(16, 24, 39, 0.18);
   --accent: #1d5fbf;
   --accent-strong: #0b3d82;
   --amber: #b7791f;

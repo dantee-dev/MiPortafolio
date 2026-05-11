@@ -1,4 +1,5 @@
 import {
+  ArrowUp,
   ArrowUpRight,
   Bot,
   Code2,
@@ -19,11 +20,13 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
       <BannerSection />
+      <CertificatesSection />
       <ProjectsSection />
       <SkillsSection />
       <InterestsSection />
       <CreativeSection />
       <ContactSection />
+      <BackToTopButton />
     </main>
   );
 }
@@ -48,6 +51,7 @@ function BannerSection() {
           Bienvenidos
         </a>
         <div className="hidden items-center gap-6 text-sm text-[var(--muted)] md:flex">
+          <a href="#certificados">Certificados</a>
           <a href="#proyectos">Proyectos</a>
           <a href="#habilidades">Habilidades</a>
           <a href="#intereses">Intereses</a>
@@ -56,10 +60,12 @@ function BannerSection() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            className="inline-flex items-center gap-2 rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-medium text-[var(--background)] transition hover:bg-[var(--accent)] hover:text-white"
-            href="mailto:hola@portafolio.dev"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-4 py-2 text-sm font-semibold text-[var(--foreground)] transition hover:border-[var(--accent)]"
+            href="https://wa.me/56987325712"
+            rel="noopener noreferrer"
+            target="_blank"
           >
-            <Mail size={16} aria-hidden="true" />
+            <Phone size={16} aria-hidden="true" />
             Hablemos
           </a>
         </div>
@@ -147,6 +153,87 @@ function BannerSection() {
   );
 }
 
+// CERTIFICADOS
+function CertificatesSection() {
+  const certificates = [
+    {
+      name: "Ciber Seguridad y Ethical Hacking",
+      file: "03-Certificado-Curso-Ciber-Seguridad-y-Ethical-Hacking.pdf",
+    },
+    {
+      name: "Titulo Tecnico",
+      file: "02-Certificado-De-Titulo-Tecnico.pdf",
+    },
+    {
+      name: "Titulo Ingeniero",
+      file: "01-Certificado-de-Titulo-Ingeniero.pdf",
+    },
+    {
+      name: "Arquitectura Cloud",
+      file: "04-CERTIFICADO-EN-ARQUITECTURA-CLOUD.pdf",
+    },
+    {
+      name: "Desarrollador Full Stack",
+      file: "05-CERTIFICADO-EN-DESARROLLADOR-FULL-STACK.pdf",
+    },
+    {
+      name: "Desarrollo de Aplicaciones",
+      file: "06-CERTIFICADO-EN-DESARROLLO-DE-APLICACIONES.pdf",
+    },
+    {
+      name: "Diseño Agil de Sistemas",
+      file: "07-CERTIFICADO-EN-DISEÑO-ÁGIL-DE-SISTEMAS.pdf",
+    },
+    {
+      name: "Diseño y Gestion de Base de Datos",
+      file: "08-CERTIFICADO-EN-DISEÑO-Y-GESTIÓN-DE-BASE-DE-DATOS.pdf",
+    },
+    {
+      name: "Soporte Computacional",
+      file: "09-CERTIFICADO-EN-SOPORTE-COMPUTACIONAL.pdf",
+    },
+    {
+      name: "Prompt Engineering",
+      file: "10-CERTIFICADO-PROMPT-ENGINEERING.pdf",
+    },
+    {
+      name: "Gestion de Proyectos Scrum",
+      file: "11-GESTIÓN-DE-PROYECTOS-SCRUM.pdf",
+    },
+  ];
+
+  return (
+    <section className="px-5 py-16 sm:px-8 lg:px-12" id="certificados">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Mis certificados / cursos</p>
+            <h2 className="max-w-3xl text-3xl font-semibold sm:text-4xl">Formacion que respalda mi base tecnica y profesional.</h2>
+          </div>
+          <a className="inline-flex items-center gap-2 font-semibold text-[var(--accent-strong)]" href="#proyectos">
+            Ver proyectos
+            <ArrowUpRight size={18} aria-hidden="true" />
+          </a>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {certificates.map((certificate) => (
+            <a
+              className="inline-flex min-h-20 items-center justify-between gap-4 rounded-lg border border-[var(--line)] bg-[var(--surface)] px-5 py-4 font-semibold text-[var(--foreground)] shadow-sm backdrop-blur transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-lg"
+              download
+              href={`/${certificate.file}`}
+              key={certificate.file}
+            >
+              <span>{certificate.name}</span>
+              <Download className="shrink-0 text-[var(--accent-strong)]" size={18} aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // PROYECTOS
 function ProjectsSection() {
   const projects = [
@@ -201,15 +288,13 @@ function ProjectsSection() {
 
 // HABILIDADES
 function SkillsSection() {
-  const skills = [
-    { area: "JavaScript / TypeScript", level: 78, group: "Lenguajes" },
-    { area: "Python", level: 74, group: "Lenguajes" },
-    { area: "HTML / CSS", level: 86, group: "Frontend" },
-    { area: "React / Next.js", level: 76, group: "Frontend" },
-    { area: "MySQL", level: 70, group: "Bases de datos" },
-    { area: "Supabase", level: 68, group: "Bases de datos" },
-    { area: "Soporte TI", level: 82, group: "Operaciones" },
-    { area: "Analisis de datos", level: 72, group: "Datos" },
+  const skillGroups = [
+    { area: "Lenguajes", items: ["TypeScript", "Python", "C#"] },
+    { area: "Frontend", items: ["HTML", "CSS", "React", "Next.js", "Bootstrap", "Tailwind CSS"] },
+    { area: "Base de datos", items: ["MySQL", "SSMS", "Supabase"] },
+    { area: "Datos", items: ["Excel", "Analisis de datos", "Power BI"] },
+    { area: "Operaciones", items: ["Soporte TI", "IA Prompt", "Automatizacion"] },
+    { area: "Buenas practicas", items: ["ISO 9001", "ISO 27001", "NIS2"] },
   ];
 
   return (
@@ -220,18 +305,16 @@ function SkillsSection() {
           <h2 className="max-w-3xl text-3xl font-semibold sm:text-4xl">Base para desarrollo, datos, soporte y mejora de procesos.</h2>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {skills.map((skill) => (
-            <div className="rounded-lg border border-white/10 bg-white/6 p-5" key={skill.area}>
-              <div className="mb-4 flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-lg font-semibold">{skill.area}</p>
-                  <p className="text-sm text-white/55">{skill.group}</p>
-                </div>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-white/80">{skill.level}%</span>
-              </div>
-              <div className="h-3 rounded-full bg-white/10">
-                <div className="h-3 rounded-full bg-[linear-gradient(90deg,var(--accent),var(--accent-strong))]" style={{ width: `${skill.level}%` }} />
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {skillGroups.map((group) => (
+            <div className="rounded-lg border border-white/10 bg-white/6 p-5" key={group.area}>
+              <p className="text-lg font-semibold">{group.area}</p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span className="rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-white/80" key={item}>
+                    {item}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
@@ -254,7 +337,7 @@ function InterestsSection() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-8">
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Intereses tecnologicos</p>
-          <h2 className="max-w-3xl text-3xl font-semibold sm:text-4xl">Areas que quiero seguir profundizando y conectando con proyectos reales.</h2>
+          <h2 className="max-w-3xl text-3xl font-semibold sm:text-4xl">Areas que quiero seguir profundizando y conectando con proyectos futuros.</h2>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
@@ -289,10 +372,10 @@ function CreativeSection() {
     <section className="px-5 py-16 sm:px-8 lg:px-12" id="creativo">
       <div className="mx-auto grid max-w-7xl gap-8 rounded-lg border border-[var(--line)] bg-[var(--surface)] p-6 backdrop-blur md:grid-cols-[0.85fr_1.15fr] md:p-8">
         <div>
-          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Seccion creativa</p>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">Proyectos creativos</p>
           <h2 className="text-3xl font-semibold sm:text-4xl">Un espacio mas personal para ideas, estetica y exploracion.</h2>
           <p className="mt-4 leading-7 text-[var(--muted)]">
-            Espacio reservado para mostrar una mirada mas humana de mi trabajo: gustos visuales, proyectos personales, contenido y gustos personales.
+            Espacio reservado para mostrar una mirada mas humana de mi trabajo: gustos visuales, proyectos personales y contenido. A futuro me gustaria convertirme en divulgador y estudioso de estos temas, conectando investigacion, tecnologia y creatividad con una comunicacion mas cercana.
           </p>
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
@@ -334,8 +417,8 @@ function ContactSection() {
           </div>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <a className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold transition hover:border-[var(--accent)]" href="mailto:dante.diaz.pacheco@gmail.com">
-            <Mail size={18} aria-hidden="true" />
+          <a className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold transition hover:border-[var(--accent)]" href="https://wa.me/56987325712" rel="noopener noreferrer" target="_blank">
+            <Phone size={18} aria-hidden="true" />
             Escribir
           </a>
           <a className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line)] px-5 py-3 font-semibold transition hover:border-[var(--accent)]" href="https://www.linkedin.com/in/dantepd" rel="noopener noreferrer" target="_blank">
@@ -345,5 +428,18 @@ function ContactSection() {
         </div>
       </div>
     </section>
+  );
+}
+
+// SUBIR
+function BackToTopButton() {
+  return (
+    <a
+      aria-label="Volver al inicio"
+      className="fixed bottom-5 right-5 z-50 grid size-12 place-items-center rounded-full border border-[var(--line)] bg-[var(--surface)] text-[var(--foreground)] shadow-xl shadow-black/20 backdrop-blur transition hover:-translate-y-1 hover:border-[var(--accent)] hover:text-[var(--accent-strong)]"
+      href="#"
+    >
+      <ArrowUp size={20} aria-hidden="true" />
+    </a>
   );
 }
